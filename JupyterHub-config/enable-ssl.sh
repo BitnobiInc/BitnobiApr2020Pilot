@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if (( $EUID != 0 )); then
+    echo "Please run this script as root or use sudo"
+    exit
+fi
+
 mkdir /etc/tljh-ssl
 # make ssl directory private
 chown root /etc/tljh-ssl
